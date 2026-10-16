@@ -1,0 +1,30 @@
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:#0b0820;color:#fff;font-family:"Trebuchet MS","Segoe UI",system-ui,sans-serif;overflow-x:hidden}
+body{background:radial-gradient(ellipse at 50% 100%,#2a1458 0%,#0b0820 70%) fixed}
+#fx{position:fixed;inset:0;width:100%;height:100%;z-index:0}
+main{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px 12px;text-align:center}
+h1{margin:0;font-size:clamp(2rem,8vw,4.6rem);line-height:1.1;letter-spacing:1px}
+h1 span{display:inline-block;animation:hop 1.6s ease-in-out infinite,hue 5s linear infinite;text-shadow:0 0 18px currentColor}
+h1 .sp{width:.3em}
+@keyframes hop{0%,100%{transform:translateY(0)}50%{transform:translateY(-.18em) scale(1.08)}}
+@keyframes hue{0%{color:#ff5e9c}25%{color:#ffd23f}50%{color:#5ef2c2}75%{color:#6ab8ff}100%{color:#ff5e9c}}
+h2{margin:.2em 0 0;font-size:clamp(1.4rem,6vw,3rem);background:linear-gradient(90deg,#ffd23f,#ff5e9c,#6ab8ff,#ffd23f);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:slide 4s linear infinite}
+@keyframes slide{to{background-position:300% 0}}
+.stage{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:center;gap:clamp(8px,4vw,50px);margin-top:18px}
+.stage svg{width:clamp(150px,38vw,260px);height:auto;overflow:visible}
+.bear{animation:bounce .8s ease-in-out infinite;transform-origin:50% 100%}
+@keyframes bounce{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-8px) rotate(2deg)}}
+.armL,.armR{animation:clapL .8s ease-in-out infinite}
+.armL{transform-origin:68px 125px}
+.armR{transform-origin:132px 125px;animation-name:clapR}
+@keyframes clapL{0%,100%{transform:rotate(70deg)}45%,55%{transform:rotate(0deg)}}
+@keyframes clapR{0%,100%{transform:rotate(-70deg)}45%,55%{transform:rotate(0deg)}}
+.flame{transform-origin:center bottom;transform-box:fill-box;animation:flick .25s ease-in-out infinite alternate}
+.f2{animation-delay:.08s}.f3{animation-delay:.16s}
+@keyframes flick{from{transform:scale(1,1) rotate(-4deg)}to{transform:scale(.85,1.2) rotate(4deg)}}
+.clap{position:absolute;font-weight:bold;color:#ffd23f;opacity:0;animation:pop .8s ease-out infinite;font-size:1.2rem}
+@keyframes pop{0%,40%{opacity:0;transform:scale(.5)}55%{opacity:1;transform:scale(1.3) translateY(-6px)}100%{opacity:0;transform:scale(1) translateY(-20px)}}
+.bw{position:relative}
+p{margin:18px 0 0;opacity:.8;font-size:.95rem}
